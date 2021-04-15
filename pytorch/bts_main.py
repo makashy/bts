@@ -524,8 +524,8 @@ def main_worker(gpu, ngpus_per_node, args):
                             old_best_name = '/model-{}-best_{}_{:.5f}'.format(old_best_step, eval_metrics[i], old_best)
                             model_path = args.log_directory + '/' + args.model_name + old_best_name
                             if os.path.exists(model_path):
-                                command = 'rm {}'.format(model_path)
-                                os.system(command)
+                                command = 'del {}'.format(model_path)
+                                os.system(command.replace("/", "\\"))
                             best_eval_steps[i] = global_step
                             model_save_name = '/model-{}-best_{}_{:.5f}'.format(global_step, eval_metrics[i], measure)
                             print('New best for {}. Saving model: {}'.format(eval_metrics[i], model_save_name))
@@ -556,29 +556,29 @@ def main():
 
     model_filename = args.model_name + '.py'
     command = 'mkdir ' + args.log_directory + '/' + args.model_name
-    os.system(command)
+    os.system(command.replace("/", "\\"))
 
     args_out_path = args.log_directory + '/' + args.model_name + '/' + sys.argv[1]
-    command = 'cp ' + sys.argv[1] + ' ' + args_out_path
-    os.system(command)
+    command = 'copy ' + sys.argv[1] + ' ' + args_out_path
+    os.system(command.replace("/", "\\"))
 
     if args.checkpoint_path == '':
         model_out_path = args.log_directory + '/' + args.model_name + '/' + model_filename
-        command = 'cp bts.py ' + model_out_path
-        os.system(command)
+        command = 'copy bts.py ' + model_out_path
+        os.system(command.replace("/", "\\"))
         aux_out_path = args.log_directory + '/' + args.model_name + '/.'
-        command = 'cp bts_main.py ' + aux_out_path
-        os.system(command)
-        command = 'cp bts_dataloader.py ' + aux_out_path
-        os.system(command)
+        command = 'copy bts_main.py ' + aux_out_path
+        os.system(command.replace("/", "\\"))
+        command = 'copy bts_dataloader.py ' + aux_out_path
+        os.system(command.replace("/", "\\"))
     else:
         loaded_model_dir = os.path.dirname(args.checkpoint_path)
         loaded_model_name = os.path.basename(loaded_model_dir)
         loaded_model_filename = loaded_model_name + '.py'
 
         model_out_path = args.log_directory + '/' + args.model_name + '/' + model_filename
-        command = 'cp ' + loaded_model_dir + '/' + loaded_model_filename + ' ' + model_out_path
-        os.system(command)
+        command = 'copy ' + loaded_model_dir + '/' + loaded_model_filename + ' ' + model_out_path
+        os.system(command.replace("/", "\\"))
 
     torch.cuda.empty_cache()
     args.distributed = args.world_size > 1 or args.multiprocessing_distributed
