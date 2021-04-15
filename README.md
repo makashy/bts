@@ -11,7 +11,7 @@ From Big to Small: Multi-Scale Local Planar Guidance for Monocular Depth Estimat
 2. pip install opencv-contrib-python=4.5 (conda version is not compatible with pytorch at this time 2021-04-15)
 3. conda install -c conda-forge matplotlib=3.4.1
 4. conda install -c conda-forge tqdm=-4.60.0
-5. conda install -c conda-forge tensorboardx
+5. conda install -c conda-forge tensorboardx=2.2
  
 ## Video Demo 1
 [![Screenshot](https://img.youtube.com/vi/2fPdZYzx9Cg/maxresdefault.jpg)](https://www.youtube.com/watch?v=2fPdZYzx9Cg)
