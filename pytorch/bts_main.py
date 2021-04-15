@@ -94,7 +94,7 @@ parser.add_argument('--num_threads',               type=int,   help='number of t
 parser.add_argument('--world_size',                type=int,   help='number of nodes for distributed training', default=1)
 parser.add_argument('--rank',                      type=int,   help='node rank for distributed training', default=0)
 parser.add_argument('--dist_url',                  type=str,   help='url used to set up distributed training', default='tcp://127.0.0.1:1234')
-parser.add_argument('--dist_backend',              type=str,   help='distributed backend', default='nccl')# Gloo  nccl
+parser.add_argument('--dist_backend',              type=str,   help='distributed backend', default='Gloo')# Gloo  nccl
 parser.add_argument('--gpu',                       type=int,   help='GPU id to use.', default=None)
 parser.add_argument('--multiprocessing_distributed',           help='Use multi-processing distributed training to launch '
                                                                     'N processes per node, which has N GPUs. This is the '
