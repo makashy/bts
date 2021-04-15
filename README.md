@@ -6,6 +6,13 @@ From Big to Small: Multi-Scale Local Planar Guidance for Monocular Depth Estimat
 [arXiv](https://arxiv.org/abs/1907.10326)  
 [Supplementary material](https://arxiv.org/src/1907.10326v4/anc/bts_sm.pdf) 
 
+## Install (Windows and conda)
+1. conda install pytorch=1.8.1 torchvision=0.9.1 torchaudio=0.8.1 cudatoolkit=11.1 -c pytorch -c conda-forge
+2. pip install opencv-contrib-python=4.5 (conda version is not compatible with pytorch at this time 2021-04-15)
+3. conda install -c conda-forge matplotlib=3.4.1
+4. conda install -c conda-forge tqdm=-4.60.0
+5. conda install -c conda-forge tensorboardx
+ 
 ## Video Demo 1
 [![Screenshot](https://img.youtube.com/vi/2fPdZYzx9Cg/maxresdefault.jpg)](https://www.youtube.com/watch?v=2fPdZYzx9Cg)
 ## Video Demo 2
