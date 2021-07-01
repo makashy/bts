@@ -143,7 +143,7 @@ def test(params):
     
     for s in tqdm(range(num_test_samples)):
         if args.dataset == 'kitti':
-            date_drive = lines[s].split('/')[1]
+            date_drive = lines[s].split('/')[0]
             filename_pred_png = save_name + '/raw/' + date_drive + '_' + lines[s].split()[0].split('/')[-1].replace(
                 '.jpg', '.png')
             filename_cmap_png = save_name + '/cmap/' + date_drive + '_' + lines[s].split()[0].split('/')[
